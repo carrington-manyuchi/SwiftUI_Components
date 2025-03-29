@@ -9,7 +9,47 @@ import SwiftUI
 
 struct ScrollViewsBootcamp: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView(showsIndicators: false) {
+            VStack {
+                
+                VStack {
+                    ForEach(0..<10) { index in
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(0..<10) { index in
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .fill(.white)
+                                        .frame(width: 200, height: 200)
+                                        .shadow(radius: 10)
+                                        .padding()
+                                }
+                                
+                            }
+                        }
+                        .scrollIndicators(.hidden)
+                       
+                    }
+                }
+                
+                VStack {
+                    ForEach(0..<20) { index in
+                        Rectangle()
+                            .fill(Color.blue)
+                            .frame(height: 300)
+                    }
+                }
+                VStack {
+                    Rectangle()
+                        .frame(height: 300)
+                    
+                    Rectangle()
+                        .frame(height: 300)
+                    
+                    Rectangle()
+                        .frame(height: 300)
+                }
+            }
+        }
     }
 }
 
